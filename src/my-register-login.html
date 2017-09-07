@@ -1,0 +1,44 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+
+<dom-module id="my-register-login">
+    <!-- Defines the element's style and local DOM -->
+    <template>
+        <style>
+            :host {
+                display: block;
+
+                padding: 16px;
+            }
+            form {
+                display: inline-flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+        </style>
+
+        <h1>Login Form</h1>
+        <iron-form>
+            <form method="get" action="/form/handler">
+                <label>Name:
+                    <input type="text" name="name">
+                </label>
+                <label> Password:
+                    <input type="password" name="password">
+                </label>
+                <paper-button raised input type="submit">Submit</paper-button>
+            </form>
+        </iron-form>
+    </template>
+    <script>
+        // Your new element extends the Polymer.Element base class
+        class MyNewView extends Polymer.Element {
+            static get is() { return 'my-register-login'; }
+        }
+        //Now, register your new custom element so the browser can use it
+        customElements.define(MyNewView.is, MyNewView);
+    </script>
+</dom-module>
